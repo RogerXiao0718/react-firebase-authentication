@@ -71,6 +71,7 @@ const SignInFormBase = props => {
         </button>
       </form>
       {error && <p>{error.message}</p>}
+      <p>Forget your password? <Link to={ROUTES.PASSWORDFORGET}>Password Forget</Link></p>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 
 const authInitialState = {
-  authUser: null
+  authUser: null,
+  username: ''
 };
 
 const authReducer = (state = authInitialState, action) => {
@@ -10,7 +11,8 @@ const authReducer = (state = authInitialState, action) => {
     case "SIGN_IN":
       return {
         ...state,
-        authUser: action.authUser
+        authUser: action.authUser,
+        username: action.username || 'no name'
       };
     case "SIGN_OUT":
       return {
