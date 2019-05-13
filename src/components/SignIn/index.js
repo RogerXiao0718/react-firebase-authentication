@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { SignUpLink } from "../SignUp";
 import { FirebaseContext } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
-import { compose } from "recompose";
-import { connect } from "react-redux";
+import { compose } from 'recompose'
+import {PasswordForgetLink} from '../PasswordForget'
 
 const SignInPage = props => (
   <div>
@@ -44,7 +44,6 @@ const SignInFormBase = props => {
       [event.target.name]: event.target.value
     });
   };
-
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -71,15 +70,12 @@ const SignInFormBase = props => {
         </button>
       </form>
       {error && <p>{error.message}</p>}
-      <p>Forget your password? <Link to={ROUTES.PASSWORDFORGET}>Password Forget</Link></p>
+      <PasswordForgetLink />
     </div>
   );
 };
 
-const withStore = connect(
-  null,
-  null
-);
 const SignInForm = compose(withRouter)(SignInFormBase);
 
 export default SignInPage;
+export { SignInForm, SignInFormBase}

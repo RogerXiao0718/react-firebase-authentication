@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import SignOutButton from "../SignOut";
-import store from "../../redux";
 import { connect } from "react-redux";
 
 const NavigationBase = ({ authUser, dispatch }) => (
