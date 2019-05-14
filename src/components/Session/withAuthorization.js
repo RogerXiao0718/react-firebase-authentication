@@ -13,19 +13,16 @@ const withAuthorization = condition => Component => {
     username: store.username
   });
 
-  const withConnect = connect(mapStateToUser)
-
   const AuhtorizedComponentBase = props => {
     const firebase = useContext(FirebaseContext);
     useEffect(() => {
       const listener = firebase.auth.onAuthStateChanged(authUser => {
         if (!condition(authUser)) {
           props.history.push(ROUTES.SIGN_IN);
-          console.log(firebase)
         }
       });
       return listener;
-    }, []);
+    }, [firebase.auth, props.history]);
   };
    const AuthorizedComponent = compose(withRouter, mapStateToUser)(AuhtorizedComponentBase)
 

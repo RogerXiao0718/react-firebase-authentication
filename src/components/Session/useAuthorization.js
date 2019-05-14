@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { FirebaseContext } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
+
 
 const useAuthorization = (payloads, condition) => {
   useEffect(() => {
