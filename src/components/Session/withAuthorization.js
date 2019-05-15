@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 import { withRouter } from "react-router-dom";
-import { withFirebase } from "../Firebsae";
-import { connect } from "react-redux";
-import {compose} from 'recompose'
+import { compose } from "recompose";
 
 import * as ROUTES from "../../constants/routes";
 
@@ -24,9 +22,12 @@ const withAuthorization = condition => Component => {
       return listener;
     }, [firebase.auth, props.history]);
   };
-   const AuthorizedComponent = compose(withRouter, mapStateToUser)(AuhtorizedComponentBase)
+  const AuthorizedComponent = compose(
+    withRouter,
+    mapStateToUser
+  )(AuhtorizedComponentBase);
 
-   return AuthorizedComponent
+  return AuthorizedComponent;
 };
 
 export default withAuthorization;

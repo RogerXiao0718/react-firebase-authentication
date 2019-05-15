@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navigation from "../Navigation";
 import LandingPage from "../Landing";
@@ -29,7 +29,7 @@ const AppBase = props => {
       }
     });
     return listener;
-  });
+  }, [firebase.auth, props]);
 
   return (
     <Router>

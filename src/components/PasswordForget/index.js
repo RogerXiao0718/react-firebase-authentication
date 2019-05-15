@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
-import Firebase, { FirebaseContext } from "../Firebase";
+import React, { useState, useContext } from "react";
+import { FirebaseContext } from "../Firebase";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 const PasswordForgetPage = () => (

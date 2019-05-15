@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import { withRouter } from "react-router-dom";
 import { SignUpLink } from "../SignUp";
 import { FirebaseContext } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
-import { compose } from 'recompose'
-import {PasswordForgetLink} from '../PasswordForget'
+import { compose } from "recompose";
+import { PasswordForgetLink } from "../PasswordForget";
 
 const SignInPage = props => (
   <div>
@@ -15,10 +15,13 @@ const SignInPage = props => (
 );
 
 const SignInFormBase = props => {
-  const initialFormState = {
-    email: "",
-    password: ""
-  };
+  const initialFormState = useMemo(
+    () => ({
+      email: "",
+      password: ""
+    }),
+    []
+  );
   const [formState, setFormState] = useState(initialFormState);
   const [error, setError] = useState(null);
   const firebase = useContext(FirebaseContext);
@@ -78,4 +81,4 @@ const SignInFormBase = props => {
 const SignInForm = compose(withRouter)(SignInFormBase);
 
 export default SignInPage;
-export { SignInForm, SignInFormBase}
+export { SignInForm, SignInFormBase };
