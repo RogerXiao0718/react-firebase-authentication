@@ -16,8 +16,8 @@ class Firebase {
   constructor() {
     if (!app.apps.length) {
       app.initializeApp(config);
-
       this.auth = app.auth();
+      this.googleProvider = new app.auth.googleProvider();
     }
   }
 
@@ -32,6 +32,8 @@ class Firebase {
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+
+  doSignInWithGoogle = () => this.auth.signiInWithPopup(this.googleProvider);
 
 }
 

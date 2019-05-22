@@ -5,11 +5,13 @@ import { FirebaseContext } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import { compose } from "recompose";
 import { PasswordForgetLink } from "../PasswordForget";
+import SignInWithGoogle from './SignInWithGoogle'
 
 const SignInPage = props => (
   <div>
     <h1>Sign In</h1>
     <SignInForm />
+    <SignInWithGoogle/>
     <SignUpLink />
   </div>
 );
