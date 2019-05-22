@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import "dotenv";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -34,7 +35,6 @@ class Firebase {
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
   doSignInWithGoogle = () => this.auth.signiInWithPopup(this.googleProvider);
-
 }
 
 export default Firebase;

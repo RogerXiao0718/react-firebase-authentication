@@ -5,13 +5,13 @@ import { FirebaseContext } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import { compose } from "recompose";
 import { PasswordForgetLink } from "../PasswordForget";
-import SignInWithGoogle from './SignInWithGoogle'
+import SignInWithGoogle from "./SignInWithGoogle";
 
 const SignInPage = props => (
   <div>
     <h1>Sign In</h1>
     <SignInForm />
-    <SignInWithGoogle/>
+    <SignInWithGoogle />
     <SignUpLink />
   </div>
 );
@@ -83,4 +83,4 @@ const SignInFormBase = props => {
 const SignInForm = compose(withRouter)(SignInFormBase);
 
 export default SignInPage;
-export { SignInForm, SignInFormBase };
+export { SignInForm, SignInFormBase, SignInWithGoogle };
